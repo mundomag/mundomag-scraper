@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-
 jobs:
   generar-reporte:
     runs-on: ubuntu-latest
