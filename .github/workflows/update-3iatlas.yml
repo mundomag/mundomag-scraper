@@ -1,12 +1,13 @@
-name: Reporte diario 3I/ATLAS
+name: Reporte y mapa 3I/ATLAS
 
 on:
   schedule:
-    - cron: '0 9 * * *'
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
+
 jobs:
   generar-reporte:
     runs-on: ubuntu-latest
