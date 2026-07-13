@@ -1,26 +1,26 @@
 <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
 <rect width="600" height="600" fill="#0a0a12"/>
-<circle cx="300.0" cy="300.0" r="10.9" fill="none" stroke="#2a2a3a" stroke-width="1" stroke-dasharray="2,3"/>
+<circle cx="300.0" cy="300.0" r="11.0" fill="none" stroke="#2a2a3a" stroke-width="1" stroke-dasharray="2,3"/>
 <circle cx="300.0" cy="300.0" r="17.8" fill="none" stroke="#2a2a3a" stroke-width="1" stroke-dasharray="2,3"/>
-<circle cx="300.0" cy="300.0" r="25.0" fill="none" stroke="#2a2a3a" stroke-width="1" stroke-dasharray="2,3"/>
-<circle cx="300.0" cy="300.0" r="35.8" fill="none" stroke="#2a2a3a" stroke-width="1" stroke-dasharray="2,3"/>
-<circle cx="300.0" cy="300.0" r="129.7" fill="none" stroke="#2a2a3a" stroke-width="1" stroke-dasharray="2,3"/>
+<circle cx="300.0" cy="300.0" r="24.9" fill="none" stroke="#2a2a3a" stroke-width="1" stroke-dasharray="2,3"/>
+<circle cx="300.0" cy="300.0" r="35.7" fill="none" stroke="#2a2a3a" stroke-width="1" stroke-dasharray="2,3"/>
+<circle cx="300.0" cy="300.0" r="129.6" fill="none" stroke="#2a2a3a" stroke-width="1" stroke-dasharray="2,3"/>
 <circle cx="300.0" cy="300.0" r="232.1" fill="none" stroke="#2a2a3a" stroke-width="1" stroke-dasharray="2,3"/>
 <circle cx="300.0" cy="300.0" r="9" fill="#ffd35c"/><text x="300.0" y="286.0" fill="#ffd35c" font-size="11" text-anchor="middle">Sol</text>
 <circle cx="303.8" cy="310.3" r="5" fill="#9b9b9b"/>
 <text x="303.8" y="301.3" fill="#9b9b9b" font-size="11" font-weight="normal" text-anchor="middle">Mercurio</text>
 <circle cx="287.8" cy="312.9" r="5" fill="#d9a441"/>
 <text x="287.8" y="303.9" fill="#d9a441" font-size="11" font-weight="normal" text-anchor="middle">Venus</text>
-<circle cx="308.7" cy="323.4" r="5" fill="#4a90d9"/>
-<text x="308.7" y="314.4" fill="#4a90d9" font-size="11" font-weight="normal" text-anchor="middle">Tierra</text>
+<circle cx="308.6" cy="323.4" r="5" fill="#4a90d9"/>
+<text x="308.6" y="314.4" fill="#4a90d9" font-size="11" font-weight="normal" text-anchor="middle">Tierra</text>
 <circle cx="326.3" cy="275.8" r="5" fill="#c1440e"/>
 <text x="326.3" y="266.8" fill="#c1440e" font-size="11" font-weight="normal" text-anchor="middle">Marte</text>
-<circle cx="226.1" cy="193.4" r="5" fill="#d8b98a"/>
-<text x="226.1" y="184.4" fill="#d8b98a" font-size="11" font-weight="normal" text-anchor="middle">Júpiter</text>
+<circle cx="226.2" cy="193.5" r="5" fill="#d8b98a"/>
+<text x="226.2" y="184.5" fill="#d8b98a" font-size="11" font-weight="normal" text-anchor="middle">Júpiter</text>
 <circle cx="529.8" cy="267.4" r="5" fill="#e0d4a8"/>
 <text x="529.8" y="258.4" fill="#e0d4a8" font-size="11" font-weight="normal" text-anchor="middle">Saturno</text>
-<circle cx="253.9" cy="212.6" r="7" fill="#5ee6d0"/>
-<text x="253.9" y="200.6" fill="#5ee6d0" font-size="11" font-weight="bold" text-anchor="middle">3I/ATLAS</text>
+<circle cx="251.3" cy="207.8" r="7" fill="#5ee6d0"/>
+<text x="251.3" y="195.8" fill="#5ee6d0" font-size="11" font-weight="bold" text-anchor="middle">3I/ATLAS</text>
 <text x="16" y="26" fill="#e8e8f0" font-size="14" font-weight="bold">Sistema solar — posiciones del 13/07/2026</text>
-<text x="16" y="586" fill="#6a6a7a" font-size="10">Vista cenital · distancias a escala lineal · tamaños de cuerpos NO a escala · Fuente: JPL Horizons (NASA)</text>
+<text x="16" y="586" fill="#6a6a7a" font-size="10">Vista cenital · distancias a escala lineal (corregidas por inclinacion real) · tamanos de cuerpos NO a escala · Fuente: JPL Horizons (NASA)</text>
 </svg>
