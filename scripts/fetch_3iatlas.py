@@ -68,7 +68,13 @@ def fetch_horizons_data(start_date: str, stop_date: str) -> str:
 def parse_ephemeris_block(raw_text: str) -> list[dict]:
     """
     Extrae las filas de datos entre las marcas $$SOE y $$EOE
-    que Horizons usa para delimitar la tabla de resultados.
+    que Horizons usa para delimitar la tabla de resultados, y además
+    interpreta cada columna según el orden de QUANTITIES='1,9,19,20':
+
+      1  -> R.A. (3 columnas: h m s) y DEC (3 columnas: d m s)
+      9  -> APmag, S-brt
+      19 -> r (distancia al Sol, AU), rdot (velocidad radial, km/s)
+      20 -> delta (distancia a la Tierra, AU), deldot (velocidad, km/s)
     """
     match = re.search(r"\$\$SOE(.*?)\$\$EOE", raw_text, re.DOTALL)
     if not match:
@@ -81,10 +87,25 @@ def parse_ephemeris_block(raw_text: str) -> list[dict]:
 
     rows = []
     for line in lines:
-        # Formato típico de una fila (columnas separadas por espacios,
-        # el orden depende de las QUANTITIES pedidas):
-        # Fecha__(UT)__HR:MN  R.A.  DEC  APmag  S-brt  delta  deldot  r  rdot
-        rows.append({"raw": line})
+        tokens = line.split()
+        row = {"raw": line}
+
+        # Si el número de columnas no coincide con lo esperado (14 tokens),
+        # igual guardamos la línea cruda pero no forzamos el parseo estructurado.
+        if len(tokens) == 14:
+            row.update({
+                "fecha": tokens[0],
+                "hora": tokens[1],
+                "ra": " ".join(tokens[2:5]),
+                "dec": " ".join(tokens[5:8]),
+                "magnitud_visual": tokens[8],
+                "distancia_sol_au": tokens[10],
+                "velocidad_radial_sol_kms": tokens[11],
+                "distancia_tierra_au": tokens[12],
+                "velocidad_radial_tierra_kms": tokens[13],
+            })
+
+        rows.append(row)
 
     return rows
 
@@ -125,7 +146,22 @@ def build_report(raw_text: str, rows: list[dict], summary: dict) -> str:
         lines.append("- (No se pudo extraer resumen del encabezado; revisar raw_response.txt)")
 
     lines.append("")
-    lines.append("## Datos de efemérides (crudos, últimos días consultados)")
+    lines.append("## Datos traducidos (última fecha consultada)")
+    lines.append("")
+
+    structured_rows = [r for r in rows if "distancia_sol_au" in r]
+    if structured_rows:
+        latest = structured_rows[-1]
+        lines.append(f"- **Fecha**: {latest['fecha']} {latest['hora']} UTC")
+        lines.append(f"- **Distancia al Sol**: {latest['distancia_sol_au']} UA")
+        lines.append(f"- **Distancia a la Tierra**: {latest['distancia_tierra_au']} UA")
+        lines.append(f"- **Magnitud visual**: {latest['magnitud_visual']}")
+        lines.append(f"- **Velocidad radial (respecto al Sol)**: {latest['velocidad_radial_sol_kms']} km/s")
+    else:
+        lines.append("- No se pudo parsear el formato de columnas esperado; revisar tabla cruda abajo.")
+
+    lines.append("")
+    lines.append("## Tabla cruda (todas las fechas consultadas)")
     lines.append("")
     lines.append("```")
     for row in rows:
