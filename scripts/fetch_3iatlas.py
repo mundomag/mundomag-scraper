@@ -11,6 +11,7 @@ Fuente de datos: https://ssd-api.jpl.nasa.gov/doc/horizons.html
 No requiere API key.
 """
 
+import os
 import requests
 import json
 import re
@@ -20,7 +21,10 @@ HORIZONS_URL = "https://ssd.jpl.nasa.gov/api/horizons.api"
 
 # Designación oficial del objeto en el catálogo JPL.
 # 3I/ATLAS también se conoce como C/2025 N1.
-OBJECT_DESIGNATION = "DES=C/2025_N1;"
+# IMPORTANTE: Horizons es sensible al formato exacto. Se usa espacio real
+# (no guion bajo) y el punto y coma final es parte de la sintaxis de Horizons
+# para indicar "small body" en vez de "major body".
+OBJECT_DESIGNATION = "DES=C/2025 N1;"
 
 
 def build_ephemeris_params(start_date: str, stop_date: str) -> dict:
@@ -139,6 +143,8 @@ def build_report(raw_text: str, rows: list[dict], summary: dict) -> str:
 
 
 def main():
+    os.makedirs("reportes", exist_ok=True)
+
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     # Pedimos un rango corto: hoy y mañana, un solo paso de 1 día.
     tomorrow = datetime.now(timezone.utc)
@@ -146,6 +152,16 @@ def main():
     stop_date = stop.strftime("%Y-%m-%d")
 
     raw_text = fetch_horizons_data(today, stop_date)
+
+    # Guardamos la respuesta cruda ANTES de intentar parsearla.
+    # Si el parseo falla más abajo, este archivo va a quedar en el repo
+    # (o visible en los logs) para poder ver qué contestó Horizons.
+    debug_filename = f"reportes/3iatlas_{today}_raw.txt"
+    with open(debug_filename, "w", encoding="utf-8") as f:
+        f.write(raw_text)
+    print("--- Primeros 1500 caracteres de la respuesta de Horizons ---")
+    print(raw_text[:1500])
+    print("--- fin del extracto ---")
 
     rows = parse_ephemeris_block(raw_text)
     summary = extract_object_summary(raw_text)
@@ -155,10 +171,6 @@ def main():
     filename = f"reportes/3iatlas_{today}.md"
     with open(filename, "w", encoding="utf-8") as f:
         f.write(report_md)
-
-    # Guardar también la respuesta cruda por si hay que depurar
-    with open(f"reportes/3iatlas_{today}_raw.txt", "w", encoding="utf-8") as f:
-        f.write(raw_text)
 
     print(f"Reporte generado: {filename}")
 
