@@ -35,9 +35,9 @@ ATLAS_NAME = "3I/ATLAS"
 ATLAS_COLOR = "#5ee6d0"
 
 
-def fetch_heliocentric_xy(command: str, date: str) -> tuple[float, float]:
+def fetch_heliocentric_xyz(command: str, date: str) -> tuple[float, float, float]:
     """
-    Pide a Horizons el vector de posición heliocéntrico (X, Y en AU,
+    Pide a Horizons el vector de posición heliocéntrico (X, Y, Z en AU,
     plano eclíptico J2000) de un cuerpo en una fecha dada.
     """
     params = {
@@ -75,7 +75,8 @@ def fetch_heliocentric_xy(command: str, date: str) -> tuple[float, float]:
 
     x = float(match.group(1))
     y = float(match.group(2))
-    return x, y
+    z = float(match.group(3))
+    return x, y, z
 
 
 def build_svg(positions: dict, today_label: str) -> str:
@@ -138,8 +139,8 @@ def build_svg(positions: dict, today_label: str) -> str:
     )
     svg_parts.append(
         f'<text x="16" y="{size - 14}" fill="#6a6a7a" font-size="10">'
-        f'Vista cenital · distancias a escala lineal · tamaños de cuerpos NO a escala · '
-        f'Fuente: JPL Horizons (NASA)</text>'
+        f'Vista cenital · distancias a escala lineal (corregidas por inclinacion real) · '
+        f'tamanos de cuerpos NO a escala · Fuente: JPL Horizons (NASA)</text>'
     )
 
     svg_parts.append("</svg>")
@@ -155,13 +156,30 @@ def main():
     positions = {}
 
     for name, command, color in BODIES:
-        x, y = fetch_heliocentric_xy(command, today)
-        positions[name] = {"x": x, "y": y, "color": color, "es_atlas": False}
-        print(f"{name}: X={x:.4f} AU, Y={y:.4f} AU")
+        x, y, z = fetch_heliocentric_xyz(command, today)
+        r3d = math.hypot(math.hypot(x, y), z)
+        angle = math.atan2(y, x)
+        # Posición "efectiva" para el dibujo: mismo ángulo (misma dirección
+        # que se ve desde arriba), pero radio = distancia 3D real al Sol.
+        # Esto evita que cuerpos con inclinación alta (como 3I/ATLAS) se
+        # dibujen más cerca de lo que están en realidad.
+        eff_x = r3d * math.cos(angle)
+        eff_y = r3d * math.sin(angle)
+        positions[name] = {"x": eff_x, "y": eff_y, "color": color, "es_atlas": False}
+        print(f"{name}: distancia real al Sol = {r3d:.4f} AU (X={x:.4f}, Y={y:.4f}, Z={z:.4f})")
 
-    atlas_x, atlas_y = fetch_heliocentric_xy(ATLAS_COMMAND, today)
-    positions[ATLAS_NAME] = {"x": atlas_x, "y": atlas_y, "color": ATLAS_COLOR, "es_atlas": True}
-    print(f"{ATLAS_NAME}: X={atlas_x:.4f} AU, Y={atlas_y:.4f} AU")
+    atlas_x, atlas_y, atlas_z = fetch_heliocentric_xyz(ATLAS_COMMAND, today)
+    atlas_r3d = math.hypot(math.hypot(atlas_x, atlas_y), atlas_z)
+    atlas_angle = math.atan2(atlas_y, atlas_x)
+    atlas_eff_x = atlas_r3d * math.cos(atlas_angle)
+    atlas_eff_y = atlas_r3d * math.sin(atlas_angle)
+    positions[ATLAS_NAME] = {
+        "x": atlas_eff_x, "y": atlas_eff_y, "color": ATLAS_COLOR, "es_atlas": True
+    }
+    print(
+        f"{ATLAS_NAME}: distancia real al Sol = {atlas_r3d:.4f} AU "
+        f"(X={atlas_x:.4f}, Y={atlas_y:.4f}, Z={atlas_z:.4f})"
+    )
 
     svg_content = build_svg(positions, today_label)
 
