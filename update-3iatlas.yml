@@ -1,0 +1,36 @@
+name: Reporte diario 3I/ATLAS
+
+on:
+  schedule:
+    # Corre todos los días a las 09:00 UTC (~03:00 hora El Salvador)
+    - cron: '0 9 * * *'
+  workflow_dispatch: {}  # permite correrlo manualmente desde GitHub también
+
+permissions:
+  contents: write
+
+jobs:
+  generar-reporte:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Ejecutar scraper de 3I/ATLAS
+        run: python scripts/fetch_3iatlas.py
+
+      - name: Commitear el nuevo reporte
+        run: |
+          git config user.name "mundomag-bot"
+          git config user.email "bot@mundomag.fyi"
+          git add reportes/
+          git diff --staged --quiet || git commit -m "Reporte automático 3I/ATLAS $(date -u +'%Y-%m-%d')"
+          git push
