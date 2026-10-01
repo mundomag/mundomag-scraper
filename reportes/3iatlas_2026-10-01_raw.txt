@@ -1,5 +1,5 @@
 *******************************************************************************
-JPL/HORIZONS                  ATLAS (C/2025 N1)            2026-Oct-01 05:20:04
+JPL/HORIZONS                  ATLAS (C/2025 N1)            2026-Oct-01 15:16:42
 Rec #:90004935 (+COV) Soln.date: 2026-Feb-19_09:10:47    # obs: 782 (2025-2026)
  
 IAU76/J2000 helio. ecliptic osc. elements (au, days, deg., period=Julian yrs):
@@ -28,7 +28,7 @@ COMET comments
 
 
 *******************************************************************************
-Ephemeris / API_USER Thu Oct  1 05:20:04 2026 Pasadena, USA      / Horizons    
+Ephemeris / API_USER Thu Oct  1 15:16:42 2026 Pasadena, USA      / Horizons    
 *******************************************************************************
 Target body name: ATLAS (C/2025 N1)               {source: JPL#54}
 Center body name: Earth (399)                     {source: DE441}
@@ -53,8 +53,8 @@ Atmos refraction: NO (AIRLESS)
 RA format       : HMS
 Time format     : CAL 
 Calendar mode   : Mixed Julian/Gregorian
-EOP file        : eop.260930.p261227                                           
-EOP coverage    : DATA-BASED 1962-JAN-20 TO 2026-SEP-30. PREDICTS-> 2026-DEC-26
+EOP file        : eop.261001.p261228                                           
+EOP coverage    : DATA-BASED 1962-JAN-20 TO 2026-OCT-01. PREDICTS-> 2026-DEC-27
 Units conversion: 1 au= 149597870.700 km, c= 299792.458 km/s, 1 day= 86400.0 s 
 Table cut-offs 1: Elevation (-90.0deg=NO ),Airmass (>38.000=NO), Daylight (NO )
 Table cut-offs 2: Solar elongation (  0.0,180.0=NO ),Local Hour Angle( 0.0=NO )
