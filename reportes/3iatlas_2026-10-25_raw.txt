@@ -1,0 +1,168 @@
+*******************************************************************************
+JPL/HORIZONS                  ATLAS (C/2025 N1)            2026-Oct-24 19:59:05
+Rec #:90004937 (+COV) Soln.date: 2026-Oct-21_09:51:09    # obs: 117 (2025-2026)
+ 
+IAU76/J2000 helio. ecliptic osc. elements (au, days, deg., period=Julian yrs):
+ 
+  EPOCH=  2461340.5 ! 2026-Oct-27.0000000 (TDB)    RMSW= n.a.
+   EC= 6.123467394525528   QR= 1.351998619400212   TP= 2460977.9417958809
+   OM= 323.0251782090054   W= 128.7969426041922    IN= 175.2403121571192
+   A= -.2638835217034532   MA= 116.1092422599331   ADIST= 9.999999E99
+   PER= 9.999999E99        N= 7.270858064          ANGMOM= .053384513
+   DAN= -3.39507           DDN= 1.9912             L= 194.1315474
+   B= 3.707887             MOID= .36155099         TP= 2025-Oct-29.4417958809
+ 
+Comet physical (GM= km^3/s^2; RAD= km):
+   GM= n.a.                RAD= n.a.
+   M1=  11.8     M2=  n.a.     k1=  7.5    k2= n.a.     PHCOF= n.a.
+Comet non-gravitational force model (AMRAT=m^2/kg;A1-A3=au/d^2;DT=days;R0=au):
+   AMRAT=  0.                                      DT=  28.46531
+   A1= 4.618075847626E-8   A2= -9.559184908867E-9  A3= -8.294590115547E-9
+ Non-standard or simulated/proxy model:
+   ALN=  1.            NK=  0.       NM=  2.       NN=  0.       R0=  1.
+
+COMET comments 
+1: soln ref.= JPL#55, data arc: 2025-10-03 to 2026-10-16
+2: k1=7.5;Temporary solution to support JWST Program 13145
+*******************************************************************************
+
+
+*******************************************************************************
+Ephemeris / API_USER Sat Oct 24 19:59:06 2026 Pasadena, USA      / Horizons    
+*******************************************************************************
+Target body name: ATLAS (C/2025 N1)               {source: JPL#55}
+Center body name: Earth (399)                     {source: DE441}
+Center-site name: GEOCENTRIC
+*******************************************************************************
+Start time      : A.D. 2026-Oct-25 00:00:00.0000 UT      
+Stop  time      : A.D. 2026-Oct-26 00:00:00.0000 UT      
+Step-size       : 1440 minutes
+*******************************************************************************
+Target pole/equ : undefined
+Target radii    : undefined                                                    
+Center geodetic : 0.0, 0.0, -6378.137             {E-lon(deg),Lat(deg),Alt(km)}
+Center cylindric: 0.0, 0.0, 0.0                   {E-lon(deg),Dxy(km),Dz(km)}
+Center pole/equ : ITRF93                          {East-longitude positive}
+Center radii    : 6378.137, 6378.137, 6356.752 km {Equator_a, b, pole_c}       
+Target primary  : Sun
+Vis. interferer : MOON (R_eq= 1737.400) km        {source: DE441}
+Rel. light bend : Sun                             {source: DE441}
+Rel. lght bnd GM: 1.3271E+11 km^3/s^2                                          
+Small-body perts: Yes                             {source: SB441-N16}
+Atmos refraction: NO (AIRLESS)
+RA format       : HMS
+Time format     : CAL 
+Calendar mode   : Mixed Julian/Gregorian
+EOP file        : eop.261023.p270119                                           
+EOP coverage    : DATA-BASED 1962-JAN-20 TO 2026-OCT-23. PREDICTS-> 2027-JAN-18
+Units conversion: 1 au= 149597870.700 km, c= 299792.458 km/s, 1 day= 86400.0 s 
+Table cut-offs 1: Elevation (-90.0deg=NO ),Airmass (>38.000=NO), Daylight (NO )
+Table cut-offs 2: Solar elongation (  0.0,180.0=NO ),Local Hour Angle( 0.0=NO )
+Table cut-offs 3: RA/DEC angular rate (     0.0=NO )                           
+*******************************************************************************
+Initial IAU76/J2000 heliocentric ecliptic osculating elements (au, days, deg.):
+  EPOCH=  2461340.5 ! 2026-Oct-27.0000000 (TDB)    RMSW= n.a.                  
+   EC= 6.123467394525528   QR= 1.351998619400212   TP= 2460977.9417958809      
+   OM= 323.0251782090054   W= 128.7969426041922    IN= 175.2403121571192       
+  Equivalent ICRF heliocentric cartesian coordinates (au, au/d):
+   X=-2.651362469624269E+00  Y= 1.166217534550910E+01  Z= 4.301090749178197E+00
+  VX=-2.972676144541149E-03 VY= 3.201598344605247E-02 VZ= 1.157926016126583E-02
+Comet physical (GM= km^3/s^2; RAD= km):                                        
+   GM= n.a.                RAD= n.a.                                           
+   M1=  11.8     M2=  n.a.     k1=  7.5    k2= n.a.     PHCOF= n.a.            
+Comet non-gravitational force model (AMRAT=m^2/kg;A1-A3=au/d^2;DT=days;R0=au): 
+   AMRAT=  0.                                      DT=  28.46531               
+   A1= 4.618075847626E-8   A2= -9.559184908867E-9  A3= -8.294590115547E-9      
+ Non-standard or simulated/proxy model:                                        
+   ALN=  1.            NK=  0.       NM=  2.       NN=  0.       R0=  1.       
+**************************************************************************************************************************
+ Date__(UT)__HR:MN     R.A._____(ICRF)_____DEC    T-mag   N-mag                r        rdot             delta      deldot
+**************************************************************************************************************************
+$$SOE
+ 2026-Oct-25 00:00     07 09 47.25 +19 15 07.7   25.521    n.a.   12.63943435071  58.7257643  12.3499409764551  29.2218222
+ 2026-Oct-26 00:00     07 09 33.53 +19 15 11.4   25.533    n.a.   12.67334777702  58.7249776  12.3668580972023  29.3735966
+$$EOE
+**************************************************************************************************************************
+Column meaning:
+ 
+TIME
+
+  Times PRIOR to 1962 are UT1, a mean-solar time closely related to the
+prior but now-deprecated GMT. Times AFTER 1962 are in UTC, the current
+civil or "wall-clock" time-scale. UTC is kept within 0.9 seconds of UT1
+using integer leap-seconds for 1972 and later years.
+
+  Conversion from the internal Barycentric Dynamical Time (TDB) of solar
+system dynamics to the non-uniform civil UT time-scale requested for output
+has not been determined for UTC times after the next July or January 1st.
+Therefore, the last known leap-second is used as a constant over future
+intervals.
+
+  Time tags refer to the UT time-scale conversion from TDB on Earth
+regardless of observer location within the solar system, although clock
+rates may differ due to the local gravity field and no analog to "UT"
+may be defined for that location.
+
+  Any 'b' symbol in the 1st-column denotes a B.C. date. First-column blank
+(" ") denotes an A.D. date.
+ 
+CALENDAR SYSTEM
+
+  Mixed calendar mode was active such that calendar dates after AD 1582-Oct-15
+(if any) are in the modern Gregorian system. Dates prior to 1582-Oct-5 (if any)
+are in the Julian calendar system, which is automatically extended for dates
+prior to its adoption on 45-Jan-1 BC.  The Julian calendar is useful for
+matching historical dates. The Gregorian calendar more accurately corresponds
+to the Earth's orbital motion and seasons. A "Gregorian-only" calendar mode is
+available if such physical events are the primary interest.
+
+  NOTE: "n.a." in output means quantity "not available" at the print-time.
+ 
+ 'R.A._____(ICRF)_____DEC' =
+  Astrometric right ascension and declination of the target center with
+respect to the observing site (coordinate origin) in the reference frame of
+the planetary ephemeris (ICRF). Compensated for down-leg light-time delay
+aberration.
+
+  Units: RA  in hours-minutes-seconds of time,    HH MM SS.ff{ffff}
+         DEC in degrees-minutes-seconds of arc,  sDD MN SC.f{ffff}
+ 
+ 'T-mag   N-mag' =
+   Comets' apparent visual total magnitude ("T-mag") and nuclear magnitude
+("N-mag") using the standard IAU model:
+
+   T-mag= M1 + 5*log10(delta) + k1*log10(r)
+   N-mag= M2 + 5*log10(delta) + k2*log10(r) + phcof*beta
+
+   Units: MAGNITUDES
+ 
+ 'r        rdot' =
+   The Sun's apparent range ("r", light-time aberrated) and range-rate ("rdot")
+relative to the target center, as seen by the observer. A positive "rdot" means
+the target center was moving away from the Sun, negative means moving toward
+the Sun.  Units: AU and KM/S
+ 
+ 'delta      deldot' =
+   Apparent range ("delta", light-time aberrated) and range-rate ("delta-dot")
+of the target center relative to the observer. A positive "deldot" means the
+target center is moving away from the observer, negative indicates movement
+toward the observer.  Units: AU and KM/S
+
+Computations by ...
+
+    Solar System Dynamics Group, Horizons On-Line Ephemeris System
+    4800 Oak Grove Drive, Jet Propulsion Laboratory
+    Pasadena, CA  91109   USA
+
+    General site: https://ssd.jpl.nasa.gov/
+    Mailing list: https://ssd.jpl.nasa.gov/email_list.html
+    System news : https://ssd.jpl.nasa.gov/horizons/news.html
+    User Guide  : https://ssd.jpl.nasa.gov/horizons/manual.html
+    Connect     : browser        https://ssd.jpl.nasa.gov/horizons/app.html#/x
+                  API            https://ssd-api.jpl.nasa.gov/doc/horizons.html
+                  command-line   telnet ssd.jpl.nasa.gov 6775
+                  e-mail/batch   https://ssd.jpl.nasa.gov/ftp/ssd/horizons_batch.txt
+                  scripts        https://ssd.jpl.nasa.gov/ftp/ssd/SCRIPTS
+    Inquiries   : Jon.D.Giorgini@jpl.nasa.gov
+
+**************************************************************************************************************************
