@@ -1,5 +1,5 @@
 *******************************************************************************
-JPL/HORIZONS                  ATLAS (C/2025 N1)            2026-Nov-05 20:53:26
+JPL/HORIZONS                  ATLAS (C/2025 N1)            2026-Nov-06 05:40:18
 Rec #:90004937 (+COV) Soln.date: 2026-Oct-21_09:51:09    # obs: 117 (2025-2026)
  
 IAU76/J2000 helio. ecliptic osc. elements (au, days, deg., period=Julian yrs):
@@ -28,7 +28,7 @@ COMET comments
 
 
 *******************************************************************************
-Ephemeris / API_USER Thu Nov  5 20:53:26 2026 Pasadena, USA      / Horizons    
+Ephemeris / API_USER Fri Nov  6 05:40:18 2026 Pasadena, USA      / Horizons    
 *******************************************************************************
 Target body name: ATLAS (C/2025 N1)               {source: JPL#55}
 Center body name: Earth (399)                     {source: DE441}
